@@ -1,0 +1,998 @@
+iindex.html <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NL AutoCare provides premium mobile car detailing at your home or workplace." />
+  <title>NL AutoCare | Mobile Car Detailing</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy: #07111f;
+      --navy-light: #0d1b2d;
+      --blue: #2a7fff;
+      --blue-light: #62a4ff;
+      --white: #ffffff;
+      --muted: #aab7c8;
+      --line: rgba(255,255,255,0.1);
+      --card: rgba(255,255,255,0.055);
+      --green: #52d69a;
+      --radius: 18px;
+      --shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: var(--blue-light);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Manrope", sans-serif;
+      line-height: 1.12;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 5.8rem);
+      letter-spacing: -0.07em;
+      max-width: 760px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      letter-spacing: -0.055em;
+      max-width: 680px;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 23px;
+      border-radius: 999px;
+      background: var(--blue);
+      color: white;
+      font-weight: 700;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+    }
+
+    .button:hover {
+      background: var(--blue-light);
+      transform: translateY(-2px);
+    }
+
+    .button.secondary {
+      background: transparent;
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .button.secondary:hover {
+      background: white;
+      color: var(--navy);
+    }
+
+    /* Navigation */
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      padding: 24px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      gap: 11px;
+      align-items: center;
+      font-family: "Manrope", sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 1.2rem;
+    }
+
+    .logo-mark {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: var(--blue);
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      color: #dce6f2;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue-light);
+    }
+
+    .nav-button {
+      min-height: 43px;
+      padding: 0 18px;
+      font-size: 0.86rem;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 780px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(7,17,31,0.98) 0%, rgba(7,17,31,0.8) 42%, rgba(7,17,31,0.34) 100%),
+        url("https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=2000&q=85") center/cover;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 160px;
+      background: linear-gradient(transparent, var(--navy));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding-top: 90px;
+    }
+
+    .hero p {
+      color: #d2dbe6;
+      font-size: 1.1rem;
+      max-width: 540px;
+      margin: 25px 0 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .hero-trust {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      color: #b9c5d3;
+      margin-top: 38px;
+      font-size: 0.88rem;
+    }
+
+    .hero-trust span::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 700;
+      margin-right: 7px;
+    }
+
+    /* Intro strip */
+    .intro-strip {
+      position: relative;
+      z-index: 2;
+      margin-top: -60px;
+    }
+
+    .intro-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .intro-item {
+      padding: 28px;
+      background: var(--navy-light);
+    }
+
+    .intro-item strong {
+      display: block;
+      font-family: "Manrope", sans-serif;
+      font-size: 1.05rem;
+      margin-bottom: 5px;
+    }
+
+    .intro-item span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 125px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 40px;
+      margin-bottom: 45px;
+    }
+
+    .section-heading p {
+      max-width: 400px;
+      color: var(--muted);
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .service-card {
+      padding: 31px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025));
+      border-radius: var(--radius);
+      transition: 0.25s ease;
+    }
+
+    .service-card:hover {
+      border-color: rgba(98,164,255,0.65);
+      transform: translateY(-5px);
+    }
+
+    .service-icon {
+      width: 47px;
+      height: 47px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(42,127,255,0.15);
+      color: var(--blue-light);
+      font-size: 1.35rem;
+      margin-bottom: 25px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+      margin: 12px 0 22px;
+    }
+
+    .service-card ul {
+      list-style: none;
+      color: #d6dfeb;
+      font-size: 0.88rem;
+    }
+
+    .service-card li {
+      margin: 9px 0;
+    }
+
+    .service-card li::before {
+      content: "•";
+      color: var(--blue-light);
+      margin-right: 9px;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 75px;
+      align-items: center;
+    }
+
+    .about-image {
+      height: 540px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background:
+        linear-gradient(transparent, rgba(7,17,31,0.45)),
+        url("https://images.unsplash.com/photo-1552933529-e359b2477252?auto=format&fit=crop&w=1100&q=85") center/cover;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin: 22px 0;
+      max-width: 570px;
+    }
+
+    .about-points {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 32px 0;
+    }
+
+    .about-point {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .check {
+      flex: 0 0 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: rgba(82,214,154,0.13);
+      color: var(--green);
+      display: grid;
+      place-items: center;
+      font-size: 0.8rem;
+    }
+
+    .about-point span {
+      color: #d8e1ed;
+      font-size: 0.9rem;
+    }
+
+    /* Process */
+    .process {
+      background: var(--navy-light);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      counter-reset: steps;
+    }
+
+    .process-card {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      counter-increment: steps;
+      position: relative;
+    }
+
+    .process-card::before {
+      content: "0" counter(steps);
+      color: var(--blue-light);
+      font-family: "Manrope", sans-serif;
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    .process-card h3 {
+      margin: 26px 0 10px;
+    }
+
+    .process-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    /* Pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .price-card {
+      padding: 33px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+    }
+
+    .price-card.featured {
+      border: 1px solid var(--blue);
+      background: linear-gradient(145deg, rgba(42,127,255,0.2), rgba(255,255,255,0.04));
+      transform: translateY(-10px);
+    }
+
+    .popular {
+      display: inline-block;
+      color: white;
+      background: var(--blue);
+      border-radius: 99px;
+      padding: 5px 10px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 19px;
+    }
+
+    .price-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-family: "Manrope", sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      margin: 18px 0 4px;
+    }
+
+    .price small {
+      color: var(--muted);
+      font: 400 0.85rem "DM Sans", sans-serif;
+    }
+
+    .price-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      min-height: 50px;
+      margin-bottom: 20px;
+    }
+
+    .price-card ul {
+      list-style: none;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+      color: #d8e1eb;
+      font-size: 0.88rem;
+    }
+
+    .price-card li {
+      margin: 10px 0;
+    }
+
+    .price-card li::before {
+      content: "✓";
+      color: var(--green);
+      margin-right: 9px;
+    }
+
+    /* Reviews */
+    .reviews {
+      background:
+        linear-gradient(rgba(7,17,31,0.9), rgba(7,17,31,0.9)),
+        url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=80") center/cover fixed;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .review-card {
+      padding: 29px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
+    }
+
+    .stars {
+      color: #ffc857;
+      letter-spacing: 3px;
+      margin-bottom: 18px;
+    }
+
+    .review-card p {
+      color: #e3eaf2;
+      font-size: 0.96rem;
+      margin-bottom: 22px;
+    }
+
+    .reviewer {
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 85px 0;
+    }
+
+    .cta-box {
+      padding: 65px;
+      text-align: center;
+      border-radius: 25px;
+      background:
+        linear-gradient(110deg, rgba(42,127,255,0.9), rgba(17,64,133,0.9)),
+        url("https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1800&q=80") center/cover;
+    }
+
+    .cta-box h2 {
+      margin: auto;
+      max-width: 720px;
+    }
+
+    .cta-box p {
+      max-width: 560px;
+      color: #e9f2ff;
+      margin: 18px auto 27px;
+    }
+
+    .cta-box .button {
+      background: white;
+      color: var(--navy);
+    }
+
+    .cta-box .button:hover {
+      background: var(--navy);
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 55px 0 25px;
+      color: var(--muted);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 50px;
+      padding-bottom: 45px;
+    }
+
+    footer h3 {
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 14px;
+    }
+
+    footer p, footer a {
+      font-size: 0.88rem;
+    }
+
+    footer a {
+      display: block;
+      margin: 8px 0;
+    }
+
+    footer a:hover {
+      color: var(--blue-light);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      font-size: 0.78rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 700px;
+      }
+
+      .intro-card,
+      .services-grid,
+      .process-grid,
+      .pricing-grid,
+      .reviews-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading,
+      .about-grid {
+        display: block;
+      }
+
+      .section-heading p {
+        margin-top: 18px;
+      }
+
+      .about-image {
+        height: 360px;
+        margin-bottom: 38px;
+      }
+
+      .price-card.featured {
+        transform: none;
+      }
+
+      .cta-box {
+        padding: 45px 24px;
+      }
+
+      .footer-grid > div:not(:first-child) {
+        margin-top: 10px;
+      }
+
+      .footer-bottom {
+        display: block;
+      }
+
+      .footer-bottom span {
+        display: block;
+        margin-top: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-mark">NL</span>
+        <span>NL AutoCare</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#pricing">Packages</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact" class="button nav-button">Book a Detail</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="eyebrow">Professional mobile car detailing</div>
+        <h1>Your car. Freshly detailed. Wherever you are.</h1>
+        <p>
+          Premium interior and exterior car detailing brought directly to your
+          home, workplace or driveway. Convenient, careful and built around your schedule.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#contact" class="button">Book Your Detail <span>→</span></a>
+          <a href="#services" class="button secondary">Explore Services</a>
+        </div>
+
+        <div class="hero-trust">
+          <span>Fully mobile service</span>
+          <span>Professional products</span>
+          <span>Careful finish every time</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="container intro-strip">
+      <div class="intro-card">
+        <div class="intro-item">
+          <strong>We come to you</strong>
+          <span>Home, work or wherever your car is parked.</span>
+        </div>
+        <div class="intro-item">
+          <strong>Premium attention to detail</strong>
+          <span>Thorough cleaning without cutting corners.</span>
+        </div>
+        <div class="intro-item">
+          <strong>Easy online booking</strong>
+          <span>Choose a package and request your appointment.</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">What we do</div>
+            <h2>Detailing that makes your car feel new again.</h2>
+          </div>
+          <p>
+            From daily drivers to pride-and-joy vehicles, we provide professional
+            cleaning and protection at a location that works for you.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">✦</div>
+            <h3>Interior Detailing</h3>
+            <p>A deep, careful clean for the areas you spend the most time in.</p>
+            <ul>
+              <li>Full vacuum and floor cleaning</li>
+              <li>Dashboard and console clean</li>
+              <li>Door cards and trim cleaned</li>
+              <li>Glass cleaned inside</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">◒</div>
+            <h3>Exterior Detailing</h3>
+            <p>Restore a clean, glossy and well-presented finish to your vehicle.</p>
+            <ul>
+              <li>Safe hand wash</li>
+              <li>Wheel and tyre cleaning</li>
+              <li>Snow foam pre-wash</li>
+              <li>Exterior glass cleaned</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">◆</div>
+            <h3>Protection & Finishing</h3>
+            <p>Finish your detail with protection that helps keep your car cleaner.</p>
+            <ul>
+              <li>Tyre dressing</li>
+              <li>Exterior protection</li>
+              <li>Interior dressing where suitable</li>
+              <li>Final quality inspection</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-image"></div>
+
+        <div class="about-copy">
+          <div class="eyebrow">The NL AutoCare difference</div>
+          <h2>Professional results without the trip to the car wash.</h2>
+          <p>
+            NL AutoCare is a mobile detailing service focused on making vehicle
+            care simple. We bring the equipment, products and attention to detail
+            directly to you.
+          </p>
+          <p>
+            Every vehicle receives a tailored service based on its condition,
+            interior materials and the result you want to achieve.
+          </p>
+
+          <div class="about-points">
+            <div class="about-point">
+              <span class="check">✓</span>
+              <span>Reliable appointment times</span>
+            </div>
+            <div class="about-point">
+              <span class="check">✓</span>
+              <span>Professional-grade products</span>
+            </div>
+            <div class="about-point">
+              <span class="check">✓</span>
+              <span>Respectful of your vehicle</span>
+            </div>
+            <div class="about-point">
+              <span class="check">✓</span>
+              <span>Convenient mobile service</span>
+            </div>
+          </div>
+
+          <a href="#contact" class="button">Arrange Your Detail →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="process">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Simple from start to finish</div>
+            <h2>A better way to care for your car.</h2>
+          </div>
+          <p>We keep the booking process clear, convenient and completely hassle-free.</p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-card">
+            <h3>Request a booking</h3>
+            <p>Tell us where you are, what vehicle you have and which package you would like.</p>
+          </div>
+
+          <div class="process-card">
+            <h3>We come to you</h3>
+            <p>We arrive at your chosen location with everything needed to complete the detail.</p>
+          </div>
+
+          <div class="process-card">
+            <h3>Enjoy the finish</h3>
+            <p>Your vehicle is cleaned, finished and checked before we leave.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Our packages</div>
+            <h2>Choose the right level of clean.</h2>
+          </div>
+          <p>Prices can be adjusted based on vehicle size and condition. Contact us for an exact quote.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3>full exterior Clean</h3>
+            <div class="price">£24.99<small>from</small></div>
+            <p>Ideal for regular upkeep and vehicles in generally good condition.</p>
+            <ul>
+              <li>Exterior hand wash</li>
+              <li>Wheels,tyres and arches cleaned</li>
+              <li>exterior foam and jet wash</li>
+              <li>exterior glass clean</li>
+            </ul>
+          </article>
+
+           <article class="price-card">
+            <h3>full interior clean</h3>
+            <div class="price">£34.99 <small>from</small></div>
+            <p>A thorough interior and service for a complete refresh.</p>
+            <ul>
+              <li>full vacuum</li>
+              <li>deodorised interior</li>
+              <li>Detailed interior door cleaning</li>
+              <li>dash and interior glass clean</li>
+              <li>detailed boot clean</li>
+            </ul>
+          </article>
+
+          <article class="price-card featured">
+            <span class="popular">Most popular</span>
+            <h3>Premium Refresh</h3>
+            <div class="price">£49.99 <small>from</small></div>
+            <p>Our most comprehensive clean for vehicles needing extra attention.</p>
+            <ul>
+              <li>interior and exterior full clean</li>
+              <li>wheel,tyres and arches cleaned </li>
+              <li>full vacuum of seats carpets and footwells</li>
+              <li>full pre wash and snow foam</li>
+              <li>detailed boot clean</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="reviews">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Customer feedback</div>
+            <h2>Clean cars. Happy customers.</h2>
+          </div>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>
+              “Brilliant service from start to finish. The car looked and smelled
+              fantastic, and I didn't have to leave the house.”
+            </p>
+            <div class="reviewer">— Customer Name · Local Guide</div>
+          </article>
+
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>
+              “Very professional and thorough. The interior looked completely
+              refreshed. Will definitely be booking again.”
+            </p>
+            <div class="reviewer">— Customer Name · Verified Customer</div>
+          </article>
+
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>
+              “Great communication, arrived on time and did an excellent job.
+              The mobile service is incredibly convenient.”
+            </p>
+            <div class="reviewer">— Customer Name · Local Customer</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="cta">
+      <div class="container">
+        <div class="cta-box">
+          <div class="eyebrow">Ready when you are</div>
+          <h2>Give your car the care it deserves.</h2>
+          <p>
+            Request your mobile detailing appointment today and let NL AutoCare
+            bring the clean to you.
+          </p>
+          <a href="tel:07000000000" class="button">Call 07000 000000 →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#" class="logo">
+            <span class="logo-mark">NL</span>
+            <span>NL AutoCare</span>
+          </a>
+          <p style="margin-top: 16px; max-width: 290px;">
+            Premium mobile car detailing brought to your home, workplace or driveway.
+          </p>
+        </div>
+
+        <div>
+          <h3>Explore</h3>
+          <a href="#services">Services</a>
+          <a href="#about">About NL AutoCare</a>
+          <a href="#pricing">Packages</a>
+          <a href="#reviews">Reviews</a>
+        </div>
+
+        <div>
+          <h3>Contact</h3>
+          <a href="tel:07536459410  07943743487">07536459410</a><a href="tel:07536459410  07943743487">07943743487</a>
+          <a href="mailto:hello@nlautocare31@gmail.com">@nlautocare31@gmail.com</a>
+          <p>Serving your local area and surrounding locations.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 NL AutoCare. All rights reserved.</span>
+        <span>Mobile car detailing · Interior cleaning · Exterior cleaning</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
